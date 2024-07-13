@@ -1,0 +1,593 @@
+---
+- summary: |
+    Регистрация пользователя
+  requirement: |
+    Пользователь может зарегистрироваться на сайте
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Niсkname = "Zenit"
+    Login = "mccenzly@bk.ru"
+    Password = "123456"
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим "Nickname"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Вводим "Password Confirmation"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+
+- summary: |
+    Вход с помощью других сервисов
+  requirement: |
+    Пользователь может войти в систему, используя учетную запись GitHub.
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Нажимаем кнопку "Sign in with GitHub"
+    - Вводим логин или email
+    - Нажимаем "sign in"
+  expected-result: |
+    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+
+- summary: |
+    Вход с помощью других сервисов
+  requirement: |
+    Пользователь может войти в систему, используя учетную запись Discord
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Нажимаем кнопку "Sign in with Discord"
+    - Вводим email или номер телефона
+    - Вводим пароль
+  expected-result: |
+    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+
+- summary: |
+    Вход с помощью других сервисов
+  requirement: |
+    Пользователь может войти в систему, используя учетную запись Discord
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Нажимаем кнопку "Sign in with discord"
+    - Сканируем QR-код через мобильное приложение телефона
+  expected-result: |
+    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+
+- summary: |
+    Вход на сайт
+  requirement: |
+    Пользователь может войти в систему используя логин и пароль
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "123456"
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+
+- summary: |
+    Восстановление пароля
+  requirement: |
+    Пользователь может восстановить пароль
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    New password = "12345678"
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Нажимаем "Forgot your password?"
+    - Вводим "Email"
+    - Переходим по ссылке отправленной на email mccenzly@bk.ru
+    - Вводим в поле "New password" новый пароль
+    - Нажимаем "Save"
+    - На главной странице нажимаем кнопку "Sign In"
+    - Вводим "Email"
+    - Вводим новый "Password"
+    - Нажимаем "Submit"
+  expected-result: |
+    Новый пароль успешно изменён  
+    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+
+- summary: |
+    Регистрация пользователя с Nickname менее 3 символов
+  requirement: |
+    Поле для ввода имени в разделе регистрации должно быть от 3 до 16 символов
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Niсkname = "M"
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим "Nickname"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Вводим "Password Confirmation"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле "Nickname" отобразилась ошибка "Should be from 3 to 16 characters"
+
+- summary: |
+    Регистрация пользователя с Nickname введенным русскими буквами
+  requirement: |
+    Поле для ввода Nickname в разделе регистрации должно быть только на латинице
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Niсkname = "Миша"
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим "Nickname"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Вводим "Password Confirmation"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле "Nickname" отобразилась ошибка "Should contain Latin letters, numbers and underscores. Only begin with latin letter"
+
+- summary: |
+    Регистрация пользователя с Password менее 6 символов
+  requirement: |
+    Поле для ввода пароля в разделе регистрации должно быть от 6 до 16 символов
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Niсkname = "Zenit"
+    Email = "mccenzly@bk.ru"
+    Password = "123"
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим "Nickname"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Вводим "Password Confirmation"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле "Password" отобразилась ошибка "Should be from 6 to 16 characters"
+
+- summary: |
+    Регистрации пользователя с уже зарегистрированным email
+  requirement: |
+    При регистрации пользователя с уже зарегистрированным email появляется ошибка "Email is already taken"
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Niсkname = "Vlados"
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим "Nickname"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Вводим "Password Confirmation"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле "Email" отобразилась ошибка "Email is already taken"
+
+- summary: |
+    Авторизация пользователя с незарегистрированным email
+  requirement: |
+    При вводе незарегистрированного email и попытке авторизации появляется ошибка "EMAIL_NOT_FOUND"
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = "tuttifrutti@fleximtogether.com"
+    Password = "12345678"
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Отобразилась ошибка "EMAIL_NOT_FOUND"
+
+- summary: |
+    Авторизация  пользователя с некорректным паролем
+  requirement: |
+    При входе в профиль и вводе неверного пароля отображается ошибка "INVALID_PASSWORD"
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "87654321"
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Отобразилась ошибка "INVALID_PASSWORD"
+
+- summary: |
+    Авторизация  пользователя с пустым полем "email" 
+  requirement: |
+    При авторизации если оставить поле "email" пустым появляется ошибка "Email required"
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = ""
+    Password = "12345678"
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Оставляем поле email пустым
+    - Вводим "Password"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Отобразилась ошибка "Email required"
+
+- summary: |
+    Авторизация  пользователя с пустым полем "password" 
+  requirement: |
+    При авторизации если оставить поле "email" пустым появляется ошибка "Password required"
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = ""
+  steps:
+    - Нажимаем кнопку "Sign In"
+    - Вводим email
+    - Оставляем поле "Password" пустым
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Отобразилась ошибка "Password required"
+
+- summary: |
+    Запуск игры незарегистрированным пользователем 
+  requirement: |
+    Пользователь может запустить игру без входа в систему
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  steps:
+    - Нажимаем кнопку "Try simple battle"
+  expected-result: |
+    Открылось игровое поле для игры с ботом
+
+- summary: |
+    Редактирование профиля пользователя
+  requirement: |
+    Пользователь может редактировать профиль
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Settings"
+    - Изменяем "Nickname" с "Zenit" на "Spartak"
+    - Изменяем "Email" с "mccenzly@bk.ru" на "spartak@bk.ru"
+    - Изменяем "Password" с "12345678" на "87654321"
+    - Изменяем аватар
+    - Нажимаем "Save"
+  expected-result: |
+    Изменились "Nickname", "Email", "Password", аватар
+
+- summary: |
+    Изменение настроек профиля
+  requirement: |
+    Пользователь может менять язык программирования, звуки сайта dendy/cs/standart/silent и громкость в настройках профиля
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Settings"
+    - Выбирваем язык программирования в окне "Your weapon" 
+    - Изменяем звук сайта во вкладке "Select sound type"
+    - Изменяем громкость сайта путем передвигания бегунка 
+    - Нажимаем "Save"
+  expected-result: |
+    Изменился язык программирования, звук сайта, громкость сайта установилась согласно установке бегунка.
+    Появилось сообщение "Your settings has been changed"
+
+- summary: |
+    Просмотр статистики своего профиля
+  requirement: |
+    Пользователь может просматривать статистику своего профиля
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "My profile"
+  expected-result: |
+    Открывается страница https://codebattle.hexlet.io/users/15730
+    На странице видна статистика пользователя
+
+- summary: |
+    Выход из профиля
+  requirement: |
+    Пользователь может выйти из профиля
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Sign Out"
+  expected-result: |
+    Открывается страница https://codebattle.hexlet.io
+    Выход пользователя из приложения выполнен успешно
+
+- summary: |
+    Рейтинг других пользователей
+  requirement: |
+    Пользователю доступен рейтинг всех зарегистрированных пользователей
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем "Top list" в таблице "Leader boards"
+    - Нажимаем 
+  expected-result: |
+    Открывается страница https://codebattle.hexlet.io/users
+    Видны все зарегистрированные пользователи и их рейтинг
+
+- summary: |
+    Сортировка пользователей по рейтингу
+  requirement: |
+    Пользователь может сортировать рейтинг пользователей по недельному, месячному и общему рейтингу
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем "Top list" в таблице "Leader boards"
+    - Нажимаем "Weekly", "Monthly", "Total"
+  expected-result: |
+    Открывается страница https://codebattle.hexlet.io/users
+    Отображается недельный, месячный и общий рейтинг пользователей
+
+- summary: |
+    Задания
+  requirement: |
+    Пользователю доступны задания
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Tasks"
+  expected-result: |
+    Открывается страница https://codebattle.hexlet.io/tasks
+    Отображается таблица со всеми доступными заданиями
+
+- summary: |
+    Создание задания
+  requirement: |
+    Пользователь может создать задание и просматривать его 
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "Task" = "Sum Two Numbers"
+    "Description RUS" = "Напишите функцию, которая принимает два числа и возвращает их сумму"
+    "Deccription ENG" = "Write a function that takes two numbers and returns their sum"
+    "Input parameters types" = "a integer", "b integer"
+    "Output parameters type" = "integer"
+    "Examples" = "[-100,100] -> 0", "[-200,200] -> 0", "[-600,600] -> 0"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Tasks"
+    - Нажимаем "Create new task"
+    - Вводим название задания во вкладке "Step 1" в поле "Task"
+    - Переключаем язык приложения на RU
+    - Вводим описание задания во вкладке "Step 1" в поле "Description" на русском языке
+    - Переключаем язык приложения на EN
+    - Вводим описание задания во вкладке "Step 1" в поле "Description" на английском языке
+    - Нажимаем на значек карандаша в "Step 2" в поле "Input parameters types" 
+    - Вводим имя и выбираем тип входных параметров в "Step 2" в поле "Input parameters types"
+    - Нажимаем на значек карандаша в "Step 2" в поле "Output parameters types" 
+    - Выбираем тип входных параметров в "Step 2" в поле "Output parameters types"
+    - Нажимаем кнопку "Save"
+    - Нажимаем кнопку "Show" рядом с созданным ранее заданием
+  expected-result: |
+    Открылась страница https://codebattle.hexlet.io/tasks
+    Отображено созданное нами задание
+
+- summary: |
+    Название задания
+  requirement: |
+    Название задания должно быть уникальным
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "Task" = "Sum Two Numbers"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Tasks"
+    - Нажимаем "Create new task"
+    - Вводим название задания во вкладке "Step 1" в поле "Task"
+  expected-result: |
+    Появилось сообщение "Name must be unique"
+
+- summary: |
+    Редактирование задания
+  requirement: |
+    Пользователь может редактировать задания
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Tasks"
+    - Нажимаем "show" на созданное нами задание
+    - Нажимаем "Edit"
+    - Изменяем имя задания на "Sum Three Numbers"
+    - Нажимаем "Save"
+  expected-result: |
+    Задание обновилось с актуальным именем
+
+- summary: |
+    Создание сборника заданий
+  requirement: |
+    Пользователь может добавить свое задание в сборник заданий.
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Авторизоваться на сайте "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "Name" = "Sum Two Numbers"
+    "Task ids" = "19931860"
+    "Visibilyty" = "hiden"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Tasks"
+    - Нажимаем "Task packs"
+    - Нажимаем "Create new task pack"
+    - Вводим имя сборника заданий "Sum Three Numbers"
+    - Выбираем в выпадающем окне "Visibilyty" = "hiden"
+    - Вводим "Task ids" = "19931860"
+    - Нажимаем "Save"
+  expected-result: |
+    Открылась страница https://codebattle.hexlet.io/task_packs
+    Сборник заданий успешно создан
+
+- summary: |
+    Редактирование сборника заданий
+  requirement: |
+    Пользователь может редактировать созданные сборники заданий
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "Name" = "Sum Two Numbers"
+    "Visibility" = "public"
+    "Task_ids" =  "19931860"
+  steps:
+    - Открываем меню нажатием на "аватар"
+    - Нажимаем кнопку "Tasks"
+    - Нажимаем кнопку "Task packs"
+    - Нажимаем кнопку "Show" рядом с выбранным сборником
+    - Нажимаем кнопку "Edit"
+    - Вводим "Name"
+    - Выбираем "Visibility" = "public"
+    - Вводим "Task_ids"
+    - Нажимаем кнопку "Save"
+  expected-result: |
+    Отображено сообщение "TaskPack updated successfully."
+    Отображен созданный нами "Task pack".
+
+- summary: |
+    Турниры
+  requirement: |
+    Пользователю доступны турниры и он может их просматривать
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем меню нажатием на "аватар"
+    - Нажимаем кнопку "Tournaments"
+    - Нажимаем кнопку "Show" на любой турнир
+  expected-result: |
+    Открывается страница https://codebattle.hexlet.io/tournaments
+    При выборе турнира он доступен для просмотра
+
+- summary: |
+    Создание турнира
+  requirement: |
+    Пользователь может создать свой турнир
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "Name" = "Unreal_Tournament"
+    "Type" = "Individual"
+    "Description" = "Chess tournament"
+    "Starts at" = "13.07.2024 20:55"
+    "Access type" = "token"
+    "Task strategy" = "random_per_game"
+    "Score strategy" = "time_and_tests"
+    "Task provider" = "level"
+    "Level" = "easy"
+    "Event" = "1"
+    "Players limit" = "4"
+    "Default language" = "js"
+    "Match timeout seconds" = "177"
+    "Break duration seconds" = "42"
+  steps:
+    - Открываем меню нажатием на "аватар"
+    - Нажимаем кнопку "Tournaments"
+    - В поле "Create new tournament" вводим: "Name", "Type", "Description", "Starts at", "Access type", "Task strategy", "Score ctrategy", "Task provider", "Level", "Event", "Players limit", "Defauly language", "Match timeout seconds", "Break duration seconds"
+    - Нажимаем "Create"
+  expected-result: |
+    Открывается страница https://codebattle.hexlet.io/tournaments
+    При выборе турнира он доступен для просмотра
+    
+
+
+
+    
+
+
+    
+    
+
+    
+
+    
