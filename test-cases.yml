@@ -576,8 +576,46 @@
     - В поле "Create new tournament" вводим: "Name", "Type", "Description", "Starts at", "Access type", "Task strategy", "Score ctrategy", "Task provider", "Level", "Event", "Players limit", "Defauly language", "Match timeout seconds", "Break duration seconds"
     - Нажимаем "Create"
   expected-result: |
-    Открывается страница https://codebattle.hexlet.io/tournaments
-    При выборе турнира он доступен для просмотра
+    Турнир создан и доступен для просмотра
+!!!
+!!!
+!!!
+!!!
+!!!
+!!!
+!!!
+!!!
+!!!
+!!!
+!!!
+- summary: |
+    Создание игры
+  requirement: |
+    Пользователь может создать игру с другим пользователем или ботом
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "age_to_days"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем кнопку "Create a game"
+    - Выбираем уровень (level)
+    - Выбираем тип игры (type of game)
+    - Выбираем время игры (time control)
+    - Выбираем задание (Choose task by name or tags)
+    - Нажимаем "Create battle"
+  expected-result: |
+    Открывается страница с игрой 
+
+    
+
+    
     
 
 
