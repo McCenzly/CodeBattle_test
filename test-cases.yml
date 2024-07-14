@@ -506,7 +506,7 @@
   requirement: |
     Пользователь может редактировать созданные сборники заданий
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
     Авторизоваться в приложении "CodeBattle"
   test-data: |
     Email = "mccenzly@bk.ru"
@@ -533,7 +533,7 @@
   requirement: |
     Пользователю доступны турниры и он может их просматривать
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
     Авторизоваться в приложении "CodeBattle"
   test-data: |
     Email = "mccenzly@bk.ru"
@@ -551,49 +551,216 @@
   requirement: |
     Пользователь может создать свой турнир
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
     Авторизоваться в приложении "CodeBattle"
   test-data: |
     Email = "mccenzly@bk.ru"
     Password = "12345678"
     "Name" = "Unreal_Tournament"
-    "Type" = "Individual"
-    "Description" = "Chess tournament"
-    "Starts at" = "13.07.2024 20:55"
-    "Access type" = "token"
-    "Task strategy" = "random_per_game"
-    "Score strategy" = "time_and_tests"
-    "Task provider" = "level"
-    "Level" = "easy"
-    "Event" = "1"
-    "Players limit" = "4"
-    "Default language" = "js"
-    "Match timeout seconds" = "177"
-    "Break duration seconds" = "42"
   steps:
     - Открываем меню нажатием на "аватар"
     - Нажимаем кнопку "Tournaments"
-    - В поле "Create new tournament" вводим: "Name", "Type", "Description", "Starts at", "Access type", "Task strategy", "Score ctrategy", "Task provider", "Level", "Event", "Players limit", "Defauly language", "Match timeout seconds", "Break duration seconds"
+    - В поле "Create new tournament" вводим необходимые данные
     - Нажимаем "Create"
   expected-result: |
     Турнир создан и доступен для просмотра
-!!!
-!!!
-!!!
-!!!
-!!!
-!!!
-!!!
-!!!
-!!!
-!!!
-!!!
+
+- summary: |
+    Уникальность имени турнира
+  requirement: |
+    Имя турнира должно быть уникальным
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открыть главную страницу
+    - Перейти в раздел турниров
+    - Нажать на кнопку создания нового турнира
+    - Ввести имя турнира "Unreal_tournament"
+    - Подтвердить создание турнира
+  expected-result: |
+    Сайт выдал ошибку: "Имя турнира должно быть уникальным"
+
+- summary: |
+    Удаление турнира
+  requirement: |
+    Пользователь создавший турнир может его удалить
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открыть главную страницу
+    - Перейти в раздел турниров
+    - Выбрать турнир "Unreal_tournament"
+    - Нажать на кнопку удаления турнира
+  expected-result: |
+    Турнир "Unreal_tournament" успешно удален
+
+- summary: |
+    Удаление пользователей из турнира
+  requirement: |
+    Пользователь создавший турнир может удалять из турнира других пользователей
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует
+    В турнире "Unreal_tournament" находятся другие пользователи
+  test-data: |
+    "Пользователь 1" = "Zenit", "mccenzly@bk.ru", "12345678"
+    "Пользователь 2" = "Vlados", "tuttifrutti@fleximtogether.com", "12345678"
+  steps:
+    - Открыть главную страницу
+    - Перейти в раздел турниров
+    - Выбрать турнир "Unreal_tournament"
+    - Выбрать пользователя "Vlados"
+    - Нажать на кнопку удаления пользователя
+  expected-result: |
+    Пользователь "Vlados" успешно удален из турнира "Unreal_tournament"
+
+- summary: |
+    Бан пользователей в чате турнира
+  requirement: |
+    Пользователь создавший турнир может банить пользователей в чате турнира
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует
+    В чате турнира "Unreal_tournament" находятся другие пользователи
+  test-data: |
+    "Пользователь 1" = "Zenit", "mccenzly@bk.ru", "12345678"
+    "Пользователь 2" = "Vlados", "tuttifrutti@fleximtogether.com", "12345678"
+  steps:
+    - Открыть главную страницу
+    - Перейти в раздел турниров
+    - Выбрать турнир "Unreal_tournament"
+    - Открыть чат турнира."
+    - Выбрать пользователя "Vlados" в чате
+    - Нажать на кнопку бана пользователя
+  expected-result: |
+    Пользователь "Vlados" успешно забанен в чате турнира "Unreal_tournament"  
+
+- summary: |
+    Очистить список банов
+  requirement: |
+    Пользователь создавший турнир может очищать список банов в чате турнира
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует
+    В чате турнира "Unreal_tournament" находятся другие пользователи
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открыть главную страницу
+    - Перейти в раздел турниров
+    - Выбрать турнир "Unreal_tournament"
+    - Открыть чат турнира
+    - Нажать на кнопку очистки списка банов
+  expected-result: |
+    Список банов в чате турнира "Unreal_tournament" успешно очищен
+
+- summary: |
+    Открыть турнир для всех пользователей
+  requirement: |
+    Пользователь создавший закрытый турнир может сделать его открытым
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует и он закрытого типа
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открыть главную страницу
+    - Перейти в раздел турниров
+    - Выбрать турнир "Unreal_tournament"
+    - Нажать на кнопку изменения типа турнира
+    - Выбрать опцию "Открытый"
+    - Подтвердить изменение типа турнира
+  expected-result: |
+    Турнир "Unreal_tournament" успешно изменен на открытый
+
+- summary: |
+    Видимость закрытого турнира
+  requirement: |
+    Закрытый турнир могут видеть только пользователи участвующие в нем, а так же пользователь создавший его
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует и он закрытого типа
+    В турнире находится два пользователя 
+  test-data: |
+    "Создатель турнира"  = "Zenit", "mccenzly@bk.ru", "12345678"
+    "Участник турнира" = "Vlados", "tuttifrutti@fleximtogether.com", "12345678"
+    "Не участник турнира" = "Zahar", "zahar@bk.ru", "87654321"
+  steps:
+    - Создатель турнира заходит на сайт и проверяет видимость турнира
+    - Участник турнира заходит на сайт и проверяет видимость турнира
+    - Не участник турнира заходит на сайт и проверяет видимость турнира
+  expected-result: |
+    - Создатель турнира видит турнир."
+    - Участник турнира видит турнир."
+    - Не участник турнира не видит турнир."
+
+- summary: |
+    Возможность выхода из турнира
+  requirement: |
+    Пользователь может выходить из турниров
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует и он закрытого типа
+    В турнире находится два пользователя 
+  test-data: |
+    "Создатель турнира"  = "Zenit", "mccenzly@bk.ru", "12345678"
+    "Участник турнира" = "Vlados", "tuttifrutti@fleximtogether.com", "12345678"
+  steps:
+    - Участник турнира заходит на сайт и переходит в турнир
+    - Участник турнира нажимает кнопку выхода из турнира
+    - Участник турнира подтверждает выход из турнира
+  expected-result: |
+    - Участник турнира успешно выходит из турнира
+    - Турнир больше не отображается у Участник турнира
+
+- summary: |
+    Проверка доступности публичного турнира
+  requirement: |
+    Турниры с типом доступа "public" доступны для просмотра и участия всем пользователям
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+    Турнир с именем "Unreal_tournament" уже существует и он публичного типа
+    В турнире находится два пользователя 
+  test-data: |
+    "Создатель турнира"  = "Zenit", "mccenzly@bk.ru", "12345678"
+    "Пользователь 1" = "Vlados", "tuttifrutti@fleximtogether.com", "12345678"
+    "Пользователь 2" = "Zahar", "zahar@bk.ru", "87654321"
+  steps:
+    - Создатель турнира заходит на сайт и проверяет видимость турнира
+    - Пользователь 1 заходит на сайт и проверяет видимость турнира
+    - Пользователь 2 заходит на сайт и проверяет видимость турнира
+  expected-result: |
+    - Создатель турнира видит турнир
+    - Пользователь 1 видит турнир
+    - Пользователь 2 видит турнир
+    - Пользователь 1 может присоединиться к турниру
+    - Пользователь 2 может присоединиться к турниру
+    
 - summary: |
     Создание игры
   requirement: |
     Пользователь может создать игру с другим пользователем или ботом
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/).
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
     Авторизоваться в приложении "CodeBattle"
   test-data: |
     Email = "mccenzly@bk.ru"
@@ -601,7 +768,7 @@
     "level" = "elementary"
     "game type" = "with a bot", "with a friend", "with other users"
     "time control" = "8"
-    "Choose task" = "age_to_days"
+    "Choose task" = "rect_area"
   steps:
     - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Нажимаем кнопку "Create a game"
@@ -613,18 +780,987 @@
   expected-result: |
     Открывается страница с игрой 
 
-    
+- summary: |
+    История игры
+  requirement: |
+    Незарегистрированный пользователь может просматривать историю своей игры с ботом
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем кнопку "Try simple battle"
+    - Нажимаем "Open history"
+    - В появившемся окне внизу нажимаем "Play" 
+  expected-result: |
+    Видим историю своей игры с ботом
 
-    
-    
+- summary: |
+    Чат с ботом в игре
+  requirement: |
+    Незарегистрированный пользователь может пользоваться чатом в игре с ботом
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  test-data: |
+    "massage" = "Hello, bot"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем кнопку "Try simple battle"
+    - В окне чата пишем сообщение "Hello, bot"
+    - Нажимаем "Send" 
+  expected-result: |
+    В окне чата появилось сообщение "Hello, bot" 
 
+- summary: |
+    Просмотр "Guide" в игре
+  requirement: |
+    Зарегистрированный и незарегистрированный пользователь может просматривать "Guide" в игре с ботом
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем кнопку "Try simple battle"
+    - Нажимаем "Show guide"
+    - Нажимаем "Next"
+    - Нажимаем "Back"
+    - Нажимаем "Skip guide"
+    - Нажимаем "Back to home"
+    - Проходим авторизацию
+    - Создаем игру
+    - Проходим все шаги с кнопкой "Show guide" 
+  expected-result: |
+    Окно "Guide" появилось, работает корректно как у зарегистрированного так и у незарегистрированного пользователя
 
+- summary: |
+    Задания и примеры в игровом поле
+  requirement: |
+    В игровом поле пользователю доступно задание и примеры решения
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+  expected-result: |
+    Открылась страница с игрой, в поле "Task" видны задание и примеры решения
 
-    
+- summary: |
+    Смена языка программирования
+  requirement: |
+    В игровом поле пользователю доступна смена языка программирования
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В игровом поле в выпадающем окне меняем язык программирования
+  expected-result: |
+    Язык программирования изменился на выбранный пользователем
 
+- summary: |
+    Смена языка программирования
+  requirement: |
+    В игровом поле пользователю доступна смена языка программирования
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В игровом поле в выпадающем окне меняем язык программирования
+  expected-result: |
+    Язык программирования изменился на выбранный пользователем
 
-    
-    
+- summary: |
+    Смена языка задания
+  requirement: |
+    В игровом поле пользователю доступен выбор языка задания и примеров решения
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Во вкладке "Task" в выпадающем окне меняем язык с "Ru" на "En"
+  expected-result: |
+    Язык задания и примеров изменился на выбранный
+
+- summary: |
+    Смена темы игры
+  requirement: |
+    В игровом поле пользователю доступен выбор темы игры "light/dark"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В игровом поле нажимаем "Light"
+    - В игровом поле нажимаем "Dark"
+  expected-result: |
+    Тема игрового поля меняется с светлой на темную и наоборот
+
+- summary: |
+    Сдаться в игре
+  requirement: |
+    Пользователь может сдаться нажав "Give up"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В игровом поле нажимаем на кнопку с флагом "Give up"
+    - В появившемся окне подтверждаем нажав "Give up"
+    - В появившемся окне нажимаем "I'll be back"
+  expected-result: |
+    Появилось окно с надписью "If you read this you've lost the game", игра окончена, пользователь проиграл
+
+- summary: |
+    Обнуление "solution"
+  requirement: |
+    Пользователь может обнулить "solution"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area""
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В игровом поле "solution" пишем "print_r('Hello, World!');"
+    - Нажимаем на кнопку со стрелочками "Reset solution"
+  expected-result: |
+    В игровом поле "solution" обнулился до начальных значений
+
+- summary: |
+    Запуск проверки "solution"
+  requirement: |
+    Пользователь может запустить проверку "solution"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Записываем в "solution" код решения данного задания 
+    - Нажимаем кнопку "Run"
+  expected-result: |
+    Появилось окно "Woohoo, you're Champion!!!!!", во вкладке "output" появилось сообщение "Yay! All tests passed!!111" код прошел проверку
+
+- summary: |
+    Таймер игры
+  requirement: |
+    Пользователю доступен таймер времени игры
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+  expected-result: |
+    Во вкладке "task" есть таймер игры с обратным отсчетом согласно выбранного пользователем времени игры
+
+- summary: |
+    Просмотр стории игры 
+  requirement: |
+    Пользователь может просматривать историю своей игры
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Нажимаем "Open history"
+    - В появившемся окне внизу нажимаем "Play" 
+  expected-result: |
+    Видим историю своей игры
+
+- summary: |
+    Чат с соперником в игре
+  requirement: |
+    Пользователю доступен чат с соперником во время игры
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+    "massage" = "Hello, friend" 
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В поле чата пишем "Hello, friend"
+  expected-result: |
+    В окне чата появилось сообщение "Hello, friend"
+
+- summary: |
+    Тексты игрового поля
+  requirement: |
+    Все тексты игрового поля должны отображаться корректно и без орфографических/грамматических ошибок.
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Проверяем тексты игрового поля на наличие орфографических/грамматических ошибок
+  expected-result: |
+    Орфографических/грамматических ошибок в текстах игрового поля не найдено
+
+- summary: |
+    Элементы интерфейса
+  requirement: |
+    Корректное отображение и функционал элементов интерфейса
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Проверяем все элементы интерфейса на корректность отображения
+  expected-result: |
+    Все элементы интерфейса отображаются корректно
+
+- summary: |
+    Выбор "emoji" в чате игры
+  requirement: |
+    Во время игры в чате с соперником пользователь может выбирать "emoji"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В поле чата с соперником нажимаем на кнопку "emoji" 
+  expected-result: |
+    "emoji" выбираются и отправляются
+
+- summary: |
+    Корректность работы чата с соперником
+  requirement: |
+    Чат должен работать корректно у каждого игрока
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle" с двух разных аккаунтов
+  test-data: |
+    Пользователь 1 = "mccenzly@bk.ru", "12345678"
+    Пользователь 2 = "tuttifrutti@fleximtogether.com", "12345678"
+    "level" = "elementary"
+    "game type" = "with a friend"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+    "friend" = "Zenit"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - На втором аккаунте принимаем игру нажав "accept"
+    - Пишем в чате любой текст
+    - Нажимаем "Send" 
+  expected-result: |
+    Текст в чатах пользователей отображается корректно
+
+- summary: |
+    Использование текстового редактора "Vim"
+  requirement: |
+    Во время игры можно использовать текстовый редактор "Vim"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - В интерфейсе игры выберите текстовый редактор 'Vim'
+    - Попробуйте использовать команды Vim для редактирования кода (например, вставить текст, сохранить изменения, выйти из режима редактирования и т.д.)
+  expected-result: |
+    Текстовый редактор 'Vim' функционирует корректно, и пользователь может использовать его команды для редактирования кода во время игры.
+
+- summary: |
+    "rematch" игры
+  requirement: |
+    После победы/поражения в игре, возможно сделать "Rematch" игры
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Завершите игру (победой или поражением)
+    - После окончания игры нажмите кнопку 'Rematch'
+  expected-result: |
+    Кнопка 'Rematch' доступна. После нажатия на кнопку 'Rematch' запускается новая игра с теми же настройками и противником
+
+- summary: |
+    Победное окно
+  requirement: |
+    После победы/поражения в игре пользователю показывается победное модальное окно
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Завершите игру (победой или поражением)
+  expected-result: |
+    После окончания игры пользователю показывается модальное окно, информирующее о победе или поражении
+
+- summary: |
+    Победа в матче
+  requirement: |
+    Победа присуждается первому правильно решившему задачу пользователю
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle" с двух разных аккаунтов
+  test-data: |
+    Пользователь 1 = "mccenzly@bk.ru", "12345678"
+    Пользователь 2 = "tuttifrutti@fleximtogether.com", "12345678"
+    "level" = "elementary"
+    "game type" = "with a friend"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+    "friend" = "Zenit"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - На втором аккаунте принимаем игру нажав "accept"
+    - Решите задачу правильно и нажмите кнопку "Run" для отправки решения
+  expected-result: |
+    Победа присуждается пользователю, который первым правильно решил задачу
+
+- summary: |
+    Игра завершается при различных условиях
+  requirement: |
+    Игра завершается при победе, самостоятельной сдаче, победе противника, сдаче противника, завершении времени
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle" с двух разных аккаунтов
+  test-data: |
+    Пользователь 1 = "mccenzly@bk.ru", "12345678"
+    Пользователь 2 = "tuttifrutti@fleximtogether.com", "12345678"
+    "level" = "elementary"
+    "game type" = "with a friend"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+    "friend" = "Zenit"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - На втором аккаунте принимаем игру нажав "accept"
+    - Пользователь 1 решает задачу правильно.
+    - Пользователь 1 нажимает кнопку "Give up".
+    - Пользователь 2 решает задачу правильно.
+    - Пользователь 2 нажимает кнопку "Give up"
+    - Дождаться завершения времени игры
+  expected-result: |
+    - Игра завершается при правильном решении задачи Пользователем 1
+    - Игра завершается при сдаче Пользователем 1
+    - Игра завершается при правильном решении задачи Пользователем 2
+    - Игра завершается при сдаче Пользователем 2
+    - Игра завершается по истечении времени
+
+- summary: |
+    Просмотр игрового поля противника
+  requirement: |
+    Во время игры пользователю доступно для просмотра игровое поле противника, на нем отображаются все действия пользователя
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle" с двух разных аккаунтов
+  test-data: |
+    Пользователь 1 = "mccenzly@bk.ru", "12345678"
+    Пользователь 2 = "tuttifrutti@fleximtogether.com", "12345678"
+    "level" = "elementary"
+    "game type" = "with a friend"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+    "friend" = "Zenit"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - На втором аккаунте принимаем игру нажав "accept"
+    - Пользователь 1 начинает выполнять действия на игровом поле
+    - Пользователь 2 наблюдает за действиями Пользователя 1
+  expected-result: |
+    Пользователь 2 видит все действия Пользователя 1 на игровом поле
+
+- summary: |
+    Выход и возвращение в игру
+  requirement: |
+    Пользователь может в процессе игры выходить из игрового поля с последующим возвращением в игру, до ее завершения
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Пользователь выходит из игры, закрыв вкладку браузера
+    - Пользователь снова заходит в игру до её завершения
+  expected-result: |
+    Пользователь успешно возвращается в игру и продолжает её с того места, где остановился.
+
+- summary: |
+    Отмена игры до её начала
+  requirement: |
+    Пользователь может отменить игру до ее начала
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Пользователь нажимает кнопку отмены игры "decline" до её начала
+  expected-result: |
+    Игра успешно отменяется до её начала
+
+- summary: |
+    Полная локализация сайта
+  requirement: |
+    Сайт должен быть полностью переведен на русский и английский язык
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Сменить язык сайта на русский и проверить все элементы интерфейса
+    - Сменить язык сайта на английский и проверить все элементы интерфейса
+  expected-result: |
+    Все элементы интерфейса корректно отображаются на русском и английском языке
+
+- summary: |
+    Таблица лидеров с фильтром по времени
+  requirement: |
+    На главной странице должна быть таблица лидеров по очкам с фильтром по времени (за неделю/месяц/все время)
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Открыть таблицу лидеров
+    - Применить фильтр по времени "за неделю"
+    - Применить фильтр по времени "за месяц"
+    - Применить фильтр по времени "за все время"
+  expected-result: |
+    Таблица лидеров корректно отображается с фильтром по времени "за неделю", "месяц", "за все время"
+
+- summary: |
+    Выбор игрового противника на главной странице
+  requirement: |
+    На главной странице должно быть лобби с возможностью выбора игрового противника
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Перейти во вкладку лобби на главной странице
+    - Выбрать игрового противника из списка доступных игроков
+  expected-result: |
+    Лобби отображается на главной странице с возможностью выбора игрового противника из списка
+
+- summary: |
+    Поле "Tournament" на главной странице
+  requirement: |
+    На главной странице должно быть поле "Tournament"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Найти поле "Tournament" на главной странице
+  expected-result: |
+    Поле "Tournament" отображается на главной странице
+
+- summary: |
+    Поле "History" на главной странице
+  requirement: |
+    На главной странице должно быть поле "History" для просмотра истории игр
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Найти поле "History" на главной странице
+    - Просмотреть историю игр
+  expected-result: |
+    Поле "History" отображается на главной странице и позволяет просматривать историю игр
+
+- summary: |
+    Получение очков за победу
+  requirement: |
+    Пользователь должен получать очки за победу в играх
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+    "level" = "elementary"
+    "game type" = "with a bot", "with a friend", "with other users"
+    "time control" = "8"
+    "Choose task" = "rect_area"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажимаем "Create a game"
+    - Выбираем параметры игры
+    - Нажимаем "Create battle"
+    - Сиграть игру с противником "Vlados"
+    - Пользователь выигрывает игру
+    - Проверить количество очков на профиле пользователя
+  expected-result: |
+    Пользователь получает очки за победу в игре
+
+- summary: |
+    Следить за ходом игры других игроков
+  requirement: |
+    Пользователь может следить за ходом игры других игроков
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Найти текущие игры других пользователей
+    - Открыть одну из игр и следить за её ходом
+  expected-result: |
+    Пользователь может наблюдать за ходом игры других игроков
+
+- summary: |
+    Использование приватного чата с игроками online
+  requirement: |
+    Пользователь может использовать приватный чат с игроками online
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Открыть список игроков online
+    - Выбрать игрока и начать с ним приватный чат
+  expected-result: |
+    Пользователь может успешно использовать приватный чат с игроками online
+
+- summary: |
+    Отправка приглашения на игру с главной страницы
+  requirement: |
+    Пользователь может отправить приглашение на игру с главной страницы нажав на значек "send fight invite" в виде двух мечей
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Найти значек "send fight invite" в виде двух мечей на главной странице
+    - Нажать на значек для отправки приглашения на игру
+  expected-result: |
+    Приглашение на игру отправляется успешно, и пользователь видит подтверждение отправки
+
+- summary: |
+    Отображение количества игроков online на главной странице
+  requirement: |
+    На главной странице должно отражаться количество игроков online
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Просмотреть область на главной странице, где отображается количество игроков online
+  expected-result: |
+    На главной странице отображается актуальное количество игроков online
+
+- summary: |
+    Обновление количества игроков online при входе/выходе других пользователей
+  requirement: |
+    Количество игроков онлайн должно обновляться при входе/выходе других пользователей на сайт
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Следить за количеством игроков online
+    - Отметить изменения в количестве при входе/выходе других пользователей
+  expected-result: |
+    Количество игроков online обновляется в реальном времени при входе/выходе других пользователей
+
+- summary: |
+   Отображение информации о пользователе при наведении на никнейм в таблице лидеров
+  requirement: |
+    При наведении стрелки мыши на никнейм игрока в таблице лидеров должна появляться информация о данном пользователе
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Найти таблицу лидеров на главной странице
+    - Навести курсор на никнейм игрока в таблице лидеров
+  expected-result: |
+    При наведении на никнейм игрока появляется всплывающая информация о данном пользователе
+
+- summary: |
+   Наличие общего чата на главной странице
+  requirement: |
+    На главной странице должен быть общий чат со всеми доступными игроками online
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Найти общий чат на главной странице
+    - Проверить возможность отправки сообщений в общий чат
+  expected-result: |
+    Общий чат доступен на главной странице, и пользователи могут отправлять сообщения
+
+- summary: |
+   Отправка "emoji" в общем чате
+  requirement: |
+    В общем чате должна быть возможность отправлять "emoji"
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Открыть общий чат на главной странице
+    - Попробовать отправить сообщение с эмодзи
+  expected-result: |
+    Пользователь может успешно отправлять эмодзи в общий чат
+
+- summary: |
+    Удобство использования сайта
+  requirement: |
+    Сайт должен быть разработан с учетом удобства использования и оптимизирован для скорости работы
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт в веб-браузере
+    - Навигировать по основным разделам сайта
+    - Измерить время загрузки страниц с помощью инструмента веб-разработки браузера
+    - Сравнить результаты с допустимыми значениями (например, загрузка страницы не более 3 секунд)
+  expected-result: |
+    Сайт удобен для использования и страницы загружаются быстро (не более 3 секунд)
+
+- summary: |
+    Безопасность сайта
+  requirement: |
+    Сайт должен быть безопасным и защищать данные пользователя
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    Авторизоваться в приложении "CodeBattle"
+  test-data: |
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Открыть сайт в веб-браузере
+    - Войти в аккаунт с использованием тестовых данных
+    - Проверить наличие HTTPS протокола
+    - Провести тесты на уязвимости с использованием автоматизированных инструментов безопасности (например, OWASP ZAP)
+  expected-result: |
+    Сайт использует HTTPS и успешно проходит тесты на основные уязвимости
+
+- summary: |
+    Проверка удобства использования сайта на мобильном устройстве
+  requirement: |
+    Сайт должен быть удобным на мобильном устройстве
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт на мобильном устройстве или в режиме эмуляции мобильного устройства в браузере
+    - Навигировать по основным разделам сайта
+    - Проверить адаптивность дизайна и удобство взаимодействия
+  expected-result: |
+    Сайт удобен для использования на мобильном устройстве, все элементы правильно отображаются и легко доступны
+
+- summary: |
+    Проверка совместимости сайта с последними версиями браузеров
+  requirement: |
+    Сайт должен быть протестирован на совместимость с последними версиями браузеров
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт в последних версиях популярных браузеров (например, Chrome, Firefox, Edge, Safari)
+    - Навигировать по основным разделам сайта в каждом браузере
+  expected-result: |
+    Сайт корректно работает и отображается в последних версиях всех тестируемых браузеров
+
+- summary: |
+    Проверка способности сайта обрабатывать большое количество трафика
+  requirement: |
+    Сайт должен быть способен обрабатывать большое количество трафика (например, 1000 одновременных пользователей)
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Настроить инструмент для нагрузочного тестирования (например, JMeter, LoadRunner)
+    - Запустить тест с 1000 одновременными виртуальными пользователями
+    - Мониторить производительность и время отклика сервера
+  expected-result: |
+    Сайт успешно обрабатывает нагрузку в 1000 одновременных пользователей без значительных задержек и сбоев
+
+- summary: |
+    Простота навигации
+  requirement: |
+    Навигация на сайте должна быть понятной и простой
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт в веб-браузере
+    - Попробовать найти и перейти на разные основные разделы сайта (например, главная страница, профиль, настройки)
+    - Оценить количество кликов и время, необходимое для нахождения нужных разделов
+  expected-result: |
+    Пользователь легко и быстро находит все основные разделы сайта с минимальным количеством кликов
+
+- summary: |
+    Логичность расположения элементов
+  requirement: |
+    Все элементы сайта должны быть расположены логично и интуитивно понятны
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт в веб-браузере
+    - Проанализировать расположение основных элементов интерфейса (например, меню, кнопки, поля ввода)
+    - Проверить, насколько логично и интуитивно понятно расположены элементы
+  expected-result: |
+    Элементы интерфейса расположены логично и интуитивно понятно для пользователя
+
+- summary: |
+    Современный дизайн
+  requirement: |
+    Сайт должен иметь современный и привлекательный дизайн, соответствующий текущим стандартам веб-дизайна
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт в веб-браузере
+    - Оценить визуальное оформление сайта, включая шрифты, цвета и общий стиль
+    - Сравнить дизайн сайта с современными стандартами веб-дизайна
+  expected-result: |
+    Сайт имеет современный и привлекательный дизайн, соответствующий текущим стандартам веб-дизайна
+
+- summary: |
+    Единый стиль
+  requirement: |
+    Все страницы и элементы интерфейса сайта должны иметь единый стиль
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт в веб-браузере
+    - Просмотреть различные страницы и разделы сайта
+    - Проверить, что все страницы и элементы интерфейса выдержаны в едином стиле
+  expected-result: |
+    Все страницы и элементы интерфейса сайта имеют единый стиль
+
+- summary: |
+    Возможность общения
+  requirement: |
+    Пользователю должно быть доступно легко отправлять и получать сообщения от других пользователей на сайте
+  prerequisites:
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+  steps:
+    - Открыть сайт в веб-браузере
+    - Перейти в раздел общения (например, чат или форумы)
+    - Попробовать отправить сообщение другим пользователям
+  expected-result: |
+    Пользователь может легко отправлять и получать сообщения от других пользователей на сайте
 
     
 
