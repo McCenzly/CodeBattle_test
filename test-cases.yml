@@ -41,25 +41,11 @@
     Пользователь может войти в систему, используя учетную запись Discord
   prerequisites: |
     Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Необходимо быть зарегистрированным на портале Discord.com
   steps:
     - Нажимаем кнопку "Sign In"
     - Нажимаем кнопку "Sign in with Discord"
-    - Вводим email или номер телефона
-    - Вводим пароль
-  expected-result: |
-    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
-    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
-
-- summary: |
-    Вход с помощью других сервисов
-  requirement: |
-    Пользователь может войти в систему, используя QR-код для учетной записи Discord.
-  prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
-  steps:
-    - Нажимаем кнопку "Sign In"
-    - Нажимаем кнопку "Sign in with discord"
-    - Сканируем QR-код через мобильное приложение телефона
+    - Нажимаем авторизация
   expected-result: |
     Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
@@ -387,7 +373,7 @@
 - summary: |
     Задания
   requirement: |
-    Пользователю доступны задания
+    Пользователю доступны задания и он может просматривать их
   prerequisites: |
     Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
     Авторизоваться на сайте "CodeBattle"
@@ -397,6 +383,7 @@
   steps:
     - Нажимаем на значек своего профиля в правом верхнем углу
     - Нажимаем "Tasks"
+    - Нажимаем "Show"
   expected-result: |
     Открывается страница https://codebattle.hexlet.io/tasks
     Отображается таблица со всеми доступными заданиями
@@ -411,12 +398,12 @@
   test-data: |
     Email = "mccenzly@bk.ru"
     Password = "12345678"
-    "Task" = "Sum Two Numbers"
-    "Description RUS" = "Напишите функцию, которая принимает два числа и возвращает их сумму"
-    "Deccription ENG" = "Write a function that takes two numbers and returns their sum"
-    "Input parameters types" = "a integer", "b integer"
+    "Task" = "Square of a Number"
+    "Description RUS" = "Дано число. Ваша задача - вернуть его квадрат"
+    "Deccription ENG" = "Given a number, your task is to return its square"
+    "Input parameters types" = "n integer"
     "Output parameters type" = "integer"
-    "Examples" = "[-100,100] -> 0", "[-200,200] -> 0", "[-600,600] -> 0"
+    "Examples" = "[1] -> 1", "[2] -> 4", "[3] -> 9" и так далее 30 примеров
   steps:
     - Нажимаем на значек своего профиля в правом верхнем углу
     - Нажимаем "Tasks"
@@ -431,7 +418,9 @@
     - Нажимаем на значек карандаша в "Step 2" в поле "Output parameters types" 
     - Выбираем тип входных параметров в "Step 2" в поле "Output parameters types"
     - Нажимаем кнопку "Save"
+    - Нажимаем "Confirm"
     - Нажимаем кнопку "Show" рядом с созданным ранее заданием
+    - Переходим на страницу "Tasks"
   expected-result: |
     Открылась страница https://codebattle.hexlet.io/tasks
     Отображено созданное нами задание
@@ -443,10 +432,11 @@
   prerequisites: |
     Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
     Авторизоваться на сайте "CodeBattle"
+    Задание "Square of a Number" уже имеется в списке заданий
   test-data: |
     Email = "mccenzly@bk.ru"
     Password = "12345678"
-    "Task" = "Sum Two Numbers"
+    "Task" = "Square of a Number"
   steps:
     - Нажимаем на значек своего профиля в правом верхнем углу
     - Нажимаем "Tasks"
@@ -470,8 +460,8 @@
     - Нажимаем "Tasks"
     - Нажимаем "show" на созданное нами задание
     - Нажимаем "Edit"
-    - Изменяем имя задания на "Sum Three Numbers"
-    - Нажимаем "Save"
+    - Изменяем имя задания на "Square of a Number2"
+    - Нажимаем "Update task"
   expected-result: |
     Задание обновилось с актуальным именем
 
