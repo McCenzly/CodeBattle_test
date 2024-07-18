@@ -21,6 +21,26 @@
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
+    Регистрация пользователя с незарегистрированным email
+  requirement: |
+    Пользователь может зарегистрироваться на сайте только имея зарегистрированный email
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Niсkname = "Zenit"
+    Login = "hexlet@buterbrodhochy.com"
+    Password = "123456"
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим "Nickname"
+    - Вводим "Email"
+    - Вводим "Password"
+    - Вводим "Password Confirmation"
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Появилась ошибка "email is not registered"
+
+- summary: |
     Вход с помощью других сервисов
   requirement: |
     Пользователь может войти в систему, используя учетную запись GitHub.
@@ -179,6 +199,24 @@
   expected-result: |
     Открывается страница https://codebattle.hexlet.io
     Выход пользователя из приложения выполнен успешно
+
+- summary: |
+    Открытие созданного турнира
+  requirement: |
+    Пользователь может просматривать информацию о созданном им турнире
+  prerequisites: |
+    Пользователь авторизован на сайте
+    Пользователем был создан турнир
+  test-data: |
+    Имя турнира = Unreal_Tournament
+    Email = "mccenzly@bk.ru"
+    Password = "12345678"
+  steps:
+    - Нажимаем на значек своего профиля в правом верхнем углу
+    - Нажимаем "Tournaments"
+    - Кликаем "Show" на созданный пользователем турнир
+  expected-result: |
+    Открывается страница с турниром и видна вся информация о нем
 
 - summary: |
     Сортировка пользователей по рейтингу
