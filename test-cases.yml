@@ -181,23 +181,6 @@
     Выход пользователя из приложения выполнен успешно
 
 - summary: |
-    Рейтинг других пользователей
-  requirement: |
-    Пользователю доступен рейтинг всех зарегистрированных пользователей
-  prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
-    Авторизоваться на сайте "CodeBattle"
-  test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
-  steps:
-    - Нажимаем "Top list" в таблице "Leader boards"
-    - Нажимаем 
-  expected-result: |
-    Открывается страница https://codebattle.hexlet.io/users
-    Видны все зарегистрированные пользователи и их рейтинг
-
-- summary: |
     Сортировка пользователей по рейтингу
   requirement: |
     Пользователь может сортировать рейтинг пользователей по недельному, месячному и общему рейтингу
@@ -252,22 +235,6 @@
     - В появившемся окне внизу нажимаем "Play" 
   expected-result: |
     Видим историю своей игры с ботом
-
-- summary: |
-    Чат с ботом в игре
-  requirement: |
-    Незарегистрированный пользователь может пользоваться чатом в игре с ботом
-  prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
-  test-data: |
-    "massage" = "Hello, bot"
-  steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем кнопку "Try simple battle"
-    - В окне чата пишем сообщение "Hello, bot"
-    - Нажимаем "Send" 
-  expected-result: |
-    В окне чата появилось сообщение "Hello, bot" 
 
 - summary: |
     Просмотр "Guide" в игре
@@ -390,30 +357,6 @@
     Появилось окно "Woohoo, you're Champion!!!!!", во вкладке "output" появилось сообщение "Yay! All tests passed!!111" код прошел проверку
 
 - summary: |
-    Просмотр стории игры 
-  requirement: |
-    Пользователь может просматривать историю своей игры
-  prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
-    Авторизоваться в приложении "CodeBattle"
-  test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
-    "level" = "elementary"
-    "game type" = "with a bot", "with a friend", "with other users"
-    "time control" = "8"
-    "Choose task" = "rect_area"
-  steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - Нажимаем "Open history"
-    - В появившемся окне внизу нажимаем "Play" 
-  expected-result: |
-    Видим историю своей игры
-
-- summary: |
     Чат с соперником в игре
   requirement: |
     Пользователю доступен чат с соперником во время игры
@@ -436,29 +379,6 @@
     - В поле чата пишем "Hello, friend"
   expected-result: |
     В окне чата появилось сообщение "Hello, friend"
-
-- summary: |
-    Выбор "emoji" в чате игры
-  requirement: |
-    Во время игры в чате с соперником пользователь может выбирать "emoji"
-  prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
-    Авторизоваться в приложении "CodeBattle"
-  test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
-    "level" = "elementary"
-    "game type" = "with a bot", "with a friend", "with other users"
-    "time control" = "8"
-    "Choose task" = "rect_area"
-  steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - В поле чата с соперником нажимаем на кнопку "emoji" 
-  expected-result: |
-    "emoji" выбираются и отправляются
 
 - summary: |
     "rematch" игры
@@ -617,23 +537,6 @@
     Пользователь получает очки за победу в игре
 
 - summary: |
-    Следить за ходом игры других игроков
-  requirement: |
-    Пользователь может следить за ходом игры других игроков
-  prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
-    Авторизоваться в приложении "CodeBattle"
-  test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
-  steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Найти текущие игры других пользователей
-    - Открыть одну из игр и следить за её ходом
-  expected-result: |
-    Пользователь может наблюдать за ходом игры других игроков
-
-- summary: |
     Использование приватного чата с игроками online
   requirement: |
     Пользователь может использовать приватный чат с игроками online
@@ -649,23 +552,6 @@
     - Выбрать игрока и начать с ним приватный чат
   expected-result: |
     Пользователь может успешно использовать приватный чат с игроками online
-
-- summary: |
-    Отправка приглашения на игру с главной страницы
-  requirement: |
-    Пользователь может отправить приглашение на игру с главной страницы нажав на значек "send fight invite" в виде двух мечей
-  prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
-    Авторизоваться в приложении "CodeBattle"
-  test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
-  steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Найти значек "send fight invite" в виде двух мечей на главной странице
-    - Нажать на значек для отправки приглашения на игру
-  expected-result: |
-    Приглашение на игру отправляется успешно, и пользователь видит подтверждение отправки
 
 - summary: |
     Отображение количества игроков online на главной странице
@@ -699,23 +585,6 @@
     - Отметить изменения в количестве при входе/выходе других пользователей
   expected-result: |
     Количество игроков online обновляется в реальном времени при входе/выходе других пользователей
-
-- summary: |
-   Отображение информации о пользователе при наведении на никнейм в таблице лидеров
-  requirement: |
-    При наведении стрелки мыши на никнейм игрока в таблице лидеров должна появляться информация о данном пользователе
-  prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
-    Авторизоваться в приложении "CodeBattle"
-  test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
-  steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Найти таблицу лидеров на главной странице
-    - Навести курсор на никнейм игрока в таблице лидеров
-  expected-result: |
-    При наведении на никнейм игрока появляется всплывающая информация о данном пользователе
 
 - summary: |
    Наличие общего чата на главной странице
