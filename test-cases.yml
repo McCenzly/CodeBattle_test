@@ -4,7 +4,7 @@
   requirement: |
     Пользователь может зарегистрироваться на сайте
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    no data
   test-data: |
     Niсkname = "Zenit"
     Login = "mccenzly@bk.ru"
@@ -25,7 +25,7 @@
   requirement: |
     Пользователь может зарегистрироваться на сайте только имея зарегистрированный email
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    no data
   test-data: |
     Niсkname = "Zenit"
     Login = "hexlet@buterbrodhochy.com"
@@ -45,7 +45,7 @@
   requirement: |
     Пользователь может войти в систему, используя учетную запись GitHub.
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    Необходимо быть зарегистрированным на портале GitHub
   steps:
     - Нажимаем кнопку "Sign In"
     - Нажимаем кнопку "Sign in with GitHub"
@@ -60,7 +60,6 @@
   requirement: |
     Пользователь может войти в систему, используя учетную запись Discord
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
     Необходимо быть зарегистрированным на портале Discord.com
   steps:
     - Нажимаем кнопку "Sign In"
@@ -75,7 +74,6 @@
   requirement: |
     Пользователь может войти в систему, используя учетную запись Discord используя QR-код
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
     Необходимо быть зарегистрированным на портале Discord.com
   steps:
     - Нажимаем кнопку "Sign In"
@@ -91,7 +89,7 @@
   requirement: |
     Пользователь может войти в систему используя логин и пароль
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    no data
   test-data: |
     Email = "mccenzly@bk.ru"
     Password = "123456"
@@ -134,7 +132,7 @@
   requirement: |
     Пользователь может запустить игру без входа в систему
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    no data
   steps:
     - Нажимаем кнопку "Try simple battle"
   expected-result: |
@@ -145,7 +143,7 @@
   requirement: |
     Пользователь может изменить пароль, аватар, email в настройках профиля
   prerequisites: |
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -163,7 +161,7 @@
   requirement: |
     Пользователь может менять язык программирования, звуки сайта dendy/cs/standart/silent и громкость в настройках профиля
   prerequisites: |
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -182,7 +180,7 @@
   requirement: |
     Пользователь может просматривать статистику своего профиля
   prerequisites: |
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -197,7 +195,7 @@
   requirement: |
     Пользователь может выйти из профиля
   prerequisites: |
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -230,7 +228,7 @@
   requirement: |
     Пользователь может сортировать рейтинг пользователей по недельному, месячному и общему рейтингу
   prerequisites: |
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -245,7 +243,7 @@
   requirement: |
     Пользователь может создать игру с другим пользователем или ботом
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -264,7 +262,7 @@
   requirement: |
     Незарегистрированный пользователь может просматривать историю своей игры с ботом
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    no data
   steps:
     - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Нажимаем кнопку "Try simple battle"
@@ -278,7 +276,7 @@
   requirement: |
     Зарегистрированный и незарегистрированный пользователь может просматривать "Guide" в игре с ботом
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    no data
   test-data: |
     Email = "mccenzly@bk.ru"
     Password = "12345678"
@@ -301,7 +299,7 @@
   requirement: |
     В игровом поле пользователю доступен выбор темы игры "light/dark"
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -319,7 +317,7 @@
   requirement: |
     Пользователь может сдаться нажав "Give up"
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -338,7 +336,7 @@
   requirement: |
     Пользователь может обнулить "solution"
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -356,7 +354,7 @@
   requirement: |
     Пользователь может запустить проверку "solution"
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -374,7 +372,7 @@
   requirement: |
     Пользователю доступен чат с соперником во время игры
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -391,7 +389,7 @@
   requirement: |
     После победы/поражения в игре, возможно сделать "Rematch" игры
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -414,7 +412,6 @@
     Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
     Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Нажимаем "Create a game"
     - Выбираем параметры игры
     - Нажимаем "Create battle"
@@ -433,7 +430,6 @@
     Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
     Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Нажимаем "Create a game"
     - Выбираем параметры игры
     - Нажимаем "Create battle"
@@ -460,7 +456,6 @@
     Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
     Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Нажимаем "Create a game"
     - Выбираем параметры игры
     - Нажимаем "Create battle"
@@ -475,7 +470,7 @@
   requirement: |
     Пользователь может отменить игру до ее начала
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -492,7 +487,7 @@
   requirement: |
     Пользователь должен получать очки за победу в играх и они должны отображаться корректно
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -511,7 +506,7 @@
   requirement: |
     Показатели рейтинга нового игрока должны быть корректны
   prerequisites:
-    На странице веб-приложения "CodeBattle" по ссылке создан пользователь который ни разу не вступал в игру
+    В веб-приложении "CodeBattle" создан пользователь который ни разу не вступал в игру
   test-data: |
     Email = "lokomotiv@bk.ru"
     Password = "lokomotiv"
@@ -526,7 +521,7 @@
   requirement: |
     Пользователь может использовать приватный чат с игроками online
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -541,7 +536,7 @@
   requirement: |
     На главной странице должно отражаться количество игроков online
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -555,7 +550,7 @@
   requirement: |
     Количество игроков онлайн должно обновляться при входе/выходе других пользователей на сайт
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -570,7 +565,7 @@
   requirement: |
     На главной странице должен быть общий чат со всеми доступными игроками online
   prerequisites:
-    Открыта главная страница CodeBattle атворизованного пользователя
+    Пользователь авторизован
   test-data: |
     empty
   steps:
@@ -585,7 +580,7 @@
   requirement: |
     Навигация на сайте должна быть понятной и простой
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    no data
   steps:
     - Открыть сайт в веб-браузере
     - Попробовать найти и перейти на разные основные разделы сайта (например, главная страница, профиль, настройки)
@@ -598,7 +593,7 @@
   requirement: |
     Все элементы сайта должны быть расположены логично и интуитивно понятны
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    no data
   steps:
     - Открыть сайт в веб-браузере
     - Проанализировать расположение основных элементов интерфейса (например, меню, кнопки, поля ввода)
@@ -611,7 +606,7 @@
   requirement: |
     Сайт должен иметь современный и привлекательный дизайн, соответствующий текущим стандартам веб-дизайна
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    no data
   steps:
     - Открыть сайт в веб-браузере
     - Оценить визуальное оформление сайта, включая шрифты, цвета и общий стиль
@@ -624,7 +619,7 @@
   requirement: |
     Все страницы и элементы интерфейса сайта должны иметь единый стиль
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    no data
   steps:
     - Открыть сайт в веб-браузере
     - Просмотреть различные страницы и разделы сайта
@@ -637,7 +632,7 @@
   requirement: |
     Пользователю должно быть доступно легко отправлять и получать сообщения от других пользователей на сайте
   prerequisites:
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке (https://codebattle.hexlet.io/)
+    no data
   steps:
     - Открыть сайт в веб-браузере
     - Перейти в раздел общения (например, чат или форумы)
