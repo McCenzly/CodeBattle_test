@@ -411,12 +411,21 @@
   test-data: |
     Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
     Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
+    Task = rect area
+    Код для победы в игре:
+    const _ = require("lodash");
+    const R = require("rambda");
+    const solution = (width, length) => {
+    return width * length;
+    };
+    module.exports = solution;
   steps:
     - Нажимаем "Create a game"
     - Выбираем параметры игры
     - Нажимаем "Create battle"
     - На втором аккаунте принимаем игру нажав "accept"
-    - Решите задачу правильно и нажмите кнопку "Run" для отправки решения
+    - Вставляем код для победы
+    - Нажимаем "Run"
   expected-result: |
     Победа присуждается пользователю, который первым правильно решил задачу
 
@@ -487,16 +496,26 @@
   requirement: |
     Пользователь должен получать очки за победу в играх и они должны отображаться корректно
   prerequisites:
-    Пользователь авторизован
+    Открыты главные страницы CodeBattle двух атворизованных пользователей с разных браузеров
   test-data: |
-    empty
+    Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
+    Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
+    Task = rect area
+    Код для победы в игре:
+    const _ = require("lodash");
+    const R = require("rambda");
+    const solution = (width, length) => {
+    return width * length;
+    };
+    module.exports = solution;
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - Сыграть игру с любым противником
-    - Пользователь выигрывает игру
+    - Открыть главную страницу сайта https://codebattle.hexlet.io/#lobby
+    - Нажать "Create a game"
+    - Выбирать параметры игры и противика с которым будет проходить игра
+    - Нажать "Create battle"
+    - Вставляем код для победы
+    - Нажимаем "Run"
+    - Перейти в лобби
     - Проверить количество очков на профиле пользователя
   expected-result: |
     Пользователь получает очки за победу в игре и они отображаются корректно.
