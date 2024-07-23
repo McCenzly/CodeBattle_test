@@ -16,6 +16,145 @@
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
+    Регистрация пользователя с Nickname менее 3 символов
+  requirement: |
+    Поле для ввода имени в разделе регистрации должно быть от 3 до 16 символов
+  prerequisites: |
+    no data
+  test-data: |
+    Niсkname = M
+    Email = mccenzly@bk.ru
+    Password = 12345678
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле Nickname отобразилась ошибка Should be from 3 to 16 characters
+
+- summary: |
+    Регистрация пользователя с Nickname введенным русскими буквами
+  requirement: |
+    Поле для ввода Nickname в разделе регистрации должно быть только на латинице
+  prerequisites: |
+    no data
+  test-data: |
+    Niсkname = Миша
+    Email = mccenzly@bk.ru
+    Password = 12345678
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле Nickname отобразилась ошибка Should contain Latin letters, numbers and underscores. Only begin with latin letter
+
+- summary: |
+    Регистрация пользователя с Password менее 6 символов
+  requirement: |
+    Поле для ввода пароля в разделе регистрации должно быть от 6 до 16 символов
+  prerequisites: |
+    no data
+  test-data: |
+    Niсkname = Zenit
+    Email = mccenzly@bk.ru
+    Password = 123
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле Password отобразилась ошибка Should be from 6 to 16 characters
+
+- summary: |
+    Регистрации пользователя с уже зарегистрированным email
+  requirement: |
+    При регистрации пользователя с уже зарегистрированным email появляется ошибка Email is already taken
+  prerequisites: |
+    no data
+  test-data: |
+    Niсkname = Vlados
+    Email = mccenzly@bk.ru
+    Password = 12345678
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле Email отобразилась ошибка Email is already taken
+
+- summary: |
+    Авторизация  пользователя с некорректным паролем
+  requirement: |
+    При входе в профиль и вводе неверного пароля отображается ошибка INVALID_PASSWORD
+  prerequisites: |
+    Перейти на страницу веб-приложения CodeBattle по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = mccenzly@bk.ru
+    Password = 87654321
+  steps:
+    - Нажать кнопку Sign In
+    - Ввести Email
+    - Ввести Password
+    - Нажать кнопку Submit
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Отобразилась ошибка INVALID_PASSWORD
+
+- summary: |
+    Авторизация  пользователя с пустым полем email
+  requirement: |
+    При авторизации если оставить поле email пустым появляется ошибка Email required
+  prerequisites: |
+    Перейти на страницу веб-приложения CodeBattle по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = пустое поле
+    Password = 12345678
+  steps:
+    - Нажать кнопку Sign In
+    - Оставить поле email пустым
+    - Ввести Password
+    - Нажать кнопку Submit
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Отобразилась ошибка Email required
+
+- summary: |
+    Авторизация  пользователя с пустым полем password
+  requirement: |
+    При авторизации если оставить поле password пустым появляется ошибка Password required
+  prerequisites: |
+    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+  test-data: |
+    Email = mccenzly@bk.ru
+    Password = оставить пустым
+  steps:
+    - Нажать кнопку Sign In
+    - Ввести email
+    - Оставить поле password пустым
+    - Нажать кнопку Submit
+  expected-result: |
+    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Отобразилась ошибка Password required
+
+
+- summary: |
     Регистрация пользователя с незарегистрированным email
   requirement: |
     Пользователь может зарегистрироваться на сайте только имея зарегистрированный email
