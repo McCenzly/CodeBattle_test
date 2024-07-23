@@ -6,18 +6,13 @@
   prerequisites: |
     no data
   test-data: |
-    Niсkname = "Zenit"
-    Login = "mccenzly@bk.ru"
-    Password = "123456"
+    no data
   steps:
-    - Нажимаем кнопку "Sign Up"
-    - Вводим "Nickname"
-    - Вводим "Email"
-    - Вводим "Password"
-    - Вводим "Password Confirmation"
-    - Нажимаем кнопку "Submit"
+    - Нажать кнопку Sign Up
+    - Заполнить все обязательные поля 
+    - Нажать кнопку Submit
   expected-result: |
-    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
@@ -27,18 +22,18 @@
   prerequisites: |
     no data
   test-data: |
-    Niсkname = "Zenit"
-    Login = "hexlet@buterbrodhochy.com"
-    Password = "123456"
+    Niсkname = Zenit
+    Login = hexlet@buterbrodhochy.com
+    Password = 123456
   steps:
-    - Нажимаем кнопку "Sign Up"
-    - Вводим "Nickname"
-    - Вводим "Email"
-    - Вводим "Password"
-    - Вводим "Password Confirmation"
-    - Нажимаем кнопку "Submit"
+    - Нажать кнопку Sign Up
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
   expected-result: |
-    Появилась ошибка "email is not registered"
+    Появилась ошибка email is not registered
 
 - summary: |
     Вход с помощью других сервисов
@@ -47,12 +42,12 @@
   prerequisites: |
     Необходимо быть зарегистрированным на портале GitHub
   steps:
-    - Нажимаем кнопку "Sign In"
-    - Нажимаем кнопку "Sign in with GitHub"
-    - Вводим логин или email
-    - Нажимаем "sign in"
+    - Нажать кнопку Sign In
+    - Нажать кнопку Sign in with GitHub
+    - Ввести логин или email
+    - Нажать sign in
   expected-result: |
-    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
@@ -62,11 +57,11 @@
   prerequisites: |
     Необходимо быть зарегистрированным на портале Discord.com
   steps:
-    - Нажимаем кнопку "Sign In"
-    - Нажимаем кнопку "Sign in with Discord"
-    - Нажимаем авторизация
+    - Нажать кнопку Sign In
+    - Нажать кнопку Sign in with Discord
+    - Нажать авторизация
   expected-result: |
-    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
@@ -76,12 +71,12 @@
   prerequisites: |
     Необходимо быть зарегистрированным на портале Discord.com
   steps:
-    - Нажимаем кнопку "Sign In"
-    - Нажимаем кнопку "Sign in with Discord"
-    - Сканируем QR-код через мобильное приложение Discord на телефоне
-    - Проходим капчу
+    - Нажать кнопку Sign In
+    - Нажать кнопку Sign in with Discord
+    - Сканировать QR-код через мобильное приложение Discord на телефоне
+    - Пройти капчу
   expected-result: |
-    Вход выполнен, отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    Вход выполнен, отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
@@ -91,15 +86,15 @@
   prerequisites: |
     no data
   test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "123456"
+    Email = mccenzly@bk.ru
+    Password = 123456
   steps:
-    - Нажимаем кнопку "Sign In"
-    - Вводим "Email"
-    - Вводим "Password"
-    - Нажимаем кнопку "Submit"
+    - Нажать кнопку Sign In
+    - Ввести Email
+    - Ввести Password
+    - Нажать кнопку Submit
   expected-result: |
-    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
@@ -109,22 +104,22 @@
   prerequisites: |
     Пользователь забыл пароль
   test-data: |
-    Email = "mccenzly@bk.ru"
-    New password = "12345678"
+    Email = mccenzly@bk.ru
+    New password = 12345678
   steps:
-    - Нажимаем кнопку "Sign In"
-    - Нажимаем "Forgot your password?"
-    - Вводим "Email"
-    - Переходим по ссылке отправленной на email mccenzly@bk.ru
-    - Вводим в поле "New password" новый пароль
-    - Нажимаем "Save"
-    - На главной странице нажимаем кнопку "Sign In"
-    - Вводим "Email"
-    - Вводим новый "Password"
-    - Нажимаем "Submit"
+    - Нажать кнопку Sign In
+    - Нажать Forgot your password?
+    - Ввести Email
+    - Перейти по ссылке отправленной на email mccenzly@bk.ru
+    - Ввести в поле "New password" новый пароль
+    - Нажать Save
+    - На главной странице нажать кнопку Sign In
+    - Ввести Email
+    - Ввести новый Password
+    - Нажать Submit
   expected-result: |
     Новый пароль успешно изменён  
-    Отображена главная страница "CodeBattle" https://codebattle.hexlet.io/#lobby
+    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
     В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
@@ -134,7 +129,7 @@
   prerequisites: |
     no data
   steps:
-    - Нажимаем кнопку "Try simple battle"
+    - Нажать кнопку Try simple battle
   expected-result: |
     Открылось игровое поле для игры с ботом
 
@@ -147,14 +142,14 @@
   test-data: |
     empty
   steps:
-    - Нажимаем на значек своего профиля в правом верхнем углу
-    - Нажимаем "Settings"
-    - Изменяем "Email" с "mccenzly@bk.ru" на "spartak@bk.ru"
-    - Изменяем "Password" с "12345678" на "87654321"
-    - Изменяем аватар
-    - Нажимаем "Save"
+    - Нажать на значек своего профиля в правом верхнем углу
+    - Нажать Settings
+    - Изменить Email с mccenzly@bk.ru на spartak@bk.ru
+    - Изменить Password с 12345678 на 87654321
+    - Изменить аватар
+    - Нажать Save
   expected-result: |
-    Изменились "Email", "Password", аватар
+    Изменились Email, Password, аватар
 
 - summary: |
     Изменение настроек профиля
@@ -165,15 +160,15 @@
   test-data: |
     empty
   steps:
-    - Нажимаем на значек своего профиля в правом верхнем углу
-    - Нажимаем "Settings"
-    - Выбирваем язык программирования в окне "Your weapon" 
-    - Изменяем звук сайта во вкладке "Select sound type"
-    - Изменяем громкость сайта путем передвигания бегунка 
-    - Нажимаем "Save"
+    - Нажать на значек своего профиля в правом верхнем углу
+    - Нажать Settings
+    - Выбрать язык программирования в окне Your weapon
+    - Изменить звук сайта во вкладке Select sound type
+    - Изменить громкость сайта путем передвигания бегунка 
+    - Нажать Save
   expected-result: |
     Изменился язык программирования, звук сайта, громкость сайта установилась согласно установке бегунка.
-    Появилось сообщение "Your settings has been changed"
+    Появилось сообщение Your settings has been changed
 
 - summary: |
     Просмотр статистики своего профиля
@@ -184,8 +179,8 @@
   test-data: |
     empty
   steps:
-    - Нажимаем на значек своего профиля в правом верхнем углу
-    - Нажимаем "My profile"
+    - Нажать на значек своего профиля в правом верхнем углу
+    - Нажать My profile
   expected-result: |
     Открывается страница https://codebattle.hexlet.io/users/15730
     На странице видна статистика пользователя
@@ -199,8 +194,8 @@
   test-data: |
     empty
   steps:
-    - Нажимаем на значек своего профиля в правом верхнем углу
-    - Нажимаем "Sign Out"
+    - Нажать на значек своего профиля в правом верхнем углу
+    - Нажать Sign Out
   expected-result: |
     Открывается страница https://codebattle.hexlet.io
     Выход пользователя из приложения выполнен успешно
@@ -214,12 +209,12 @@
     Пользователем был создан турнир
   test-data: |
     Имя турнира = Unreal_Tournament
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
+    Email = mccenzly@bk.ru
+    Password = 12345678
   steps:
-    - Нажимаем на значек своего профиля в правом верхнем углу
-    - Нажимаем "Tournaments"
-    - Кликаем "Show" на созданный пользователем турнир
+    - Нажать на значек своего профиля в правом верхнем углу
+    - Нажать Tournaments
+    - Кликнуть Show на созданный пользователем турнир
   expected-result: |
     Открывается страница с турниром и видна вся информация о нем
 
@@ -232,8 +227,8 @@
   test-data: |
     empty
   steps:
-    - Нажимаем "Top list" в таблице "Leader boards"
-    - Нажимаем "Weekly", "Monthly", "Total"
+    - Нажать Top list в таблице Leader boards
+    - Нажать Weekly, Monthly, Total
   expected-result: |
     Открывается страница https://codebattle.hexlet.io/users
     Отображается недельный, месячный и общий рейтинг пользователей
@@ -247,15 +242,14 @@
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем кнопку "Create a game"
-    - Выбираем уровень (level)
-    - Выбираем тип игры (type of game)
-    - Выбираем время игры (time control)
-    - Выбираем задание (Choose task by name or tags)
-    - Нажимаем "Create battle"
+    - Нажать кнопку Create a game
+    - Выбрать уровень (level)
+    - Выбрать тип игры (type of game)
+    - Выбрать время игры (time control)
+    - Выбрать задание (Choose task by name or tags)
+    - Нажать Create battle
   expected-result: |
-    Открывается страница с игрой 
+    Открылась страница с игрой 
 
 - summary: |
     История игры
@@ -264,108 +258,109 @@
   prerequisites:
     no data
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем кнопку "Try simple battle"
-    - Нажимаем "Open history"
-    - В появившемся окне внизу нажимаем "Play" 
+    - Нажать кнопку Try simple battle
+    - Нажать Open history
+    - В появившемся окне внизу нажать Play
   expected-result: |
     Видим историю своей игры с ботом
 
 - summary: |
-    Просмотр "Guide" в игре
+    Просмотр Guide в игре
   requirement: |
-    Зарегистрированный и незарегистрированный пользователь может просматривать "Guide" в игре с ботом
+    Зарегистрированный и незарегистрированный пользователь может просматривать Guide в игре с ботом
   prerequisites:
     no data
   test-data: |
-    Email = "mccenzly@bk.ru"
-    Password = "12345678"
+    Email = mccenzly@bk.ru
+    Password = 12345678
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем кнопку "Try simple battle"
-    - Нажимаем "Show guide"
-    - Нажимаем "Next"
-    - Нажимаем "Back"
-    - Нажимаем "Skip guide"
-    - Нажимаем "Back to home"
-    - Проходим авторизацию
-    - Создаем игру
-    - Проходим все шаги с кнопкой "Show guide" 
+    - Нажать кнопку Try simple battle
+    - Нажать Show guide
+    - Нажать Next
+    - Нажать Back
+    - Нажать Skip guide
+    - Нажать Back to home
+    - Пройти авторизацию в приложении
+    - Создать игру
+    - Пройти все шаги с кнопкой Show guide
   expected-result: |
     Окно "Guide" появилось, работает корректно как у зарегистрированного так и у незарегистрированного пользователя
 
 - summary: |
     Смена темы игры
   requirement: |
-    В игровом поле пользователю доступен выбор темы игры "light/dark"
+    В игровом поле пользователю доступен выбор темы игры light/dark
   prerequisites:
     Пользователь авторизован
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - В игровом поле нажимаем "Light"
-    - В игровом поле нажимаем "Dark"
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - В игровом поле нажать Light
+    - В игровом поле нажать Dark
   expected-result: |
     Тема игрового поля меняется с светлой на темную и наоборот
 
 - summary: |
     Сдаться в игре
   requirement: |
-    Пользователь может сдаться нажав "Give up"
+    Пользователь может сдаться нажав Give up
   prerequisites:
     Пользователь авторизован
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - В игровом поле нажимаем на кнопку с флагом "Give up"
-    - В появившемся окне подтверждаем нажав "Give up"
-    - В появившемся окне нажимаем "I'll be back"
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - В игровом поле нажать на кнопку с флагом Give up
+    - В появившемся окне подтвердить нажав Give up
+    - В появившемся окне нажать I'll be back
   expected-result: |
-    Появилось окно с надписью "If you read this you've lost the game", игра окончена, пользователь проиграл
+    Появилось окно с надписью If you read this you've lost the game, игра окончена, пользователь проиграл
 
 - summary: |
-    Обнуление "solution"
+    Обнуление solution
   requirement: |
-    Пользователь может обнулить "solution"
+    Пользователь может обнулить solution
   prerequisites:
     Пользователь авторизован
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - В игровом поле "solution" пишем "print_r('Hello, World!');"
-    - Нажимаем на кнопку со стрелочками "Reset solution"
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - В игровом поле solution напечатать любой набор символов
+    - Нажать на кнопку со стрелочками Reset solution
   expected-result: |
     В игровом поле "solution" обнулился до начальных значений
 
 - summary: |
-    Запуск проверки "solution"
+    Запуск проверки solution
   requirement: |
-    Пользователь может запустить проверку "solution"
+    Пользователь может запустить проверку solution
   prerequisites:
     Пользователь авторизован
   test-data: |
-    empty
+    Task = rect area
+    Код для победы в игре:
+    const _ = require("lodash");
+    const R = require("rambda");
+    const solution = (width, length) => {
+    return width * length;
+    };
+    module.exports = solution;
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - Записываем в "solution" код решения данного задания 
-    - Нажимаем кнопку "Run"
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - Записать в solution код решения данного задания 
+    - Нажать кнопку Run
   expected-result: |
-    Появилось окно "Woohoo, you're Champion!!!!!", во вкладке "output" появилось сообщение "Yay! All tests passed!!111" код прошел проверку
+    Появилось окно Woohoo, you're Champion!!!!!, во вкладке output появилось сообщение Yay! All tests passed!!111 код прошел проверку
 
 - summary: |
     Чат с соперником в игре
@@ -376,31 +371,29 @@
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - В поле чата пишем "Hello, friend"
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - В поле чата написать Hello, friend
   expected-result: |
-    В окне чата появилось сообщение "Hello, friend"
+    В окне чата появилось сообщение Hello, friend
 
 - summary: |
-    "rematch" игры
+    Rematch игры
   requirement: |
-    После победы/поражения в игре, возможно сделать "Rematch" игры
+    После победы/поражения в игре, возможно сделать Rematch игры
   prerequisites:
     Пользователь авторизован
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - Завершите игру (победой или поражением)
-    - После окончания игры нажмите кнопку 'Rematch'
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - Завершить игру (победой или поражением)
+    - После окончания игры нажать кнопку Rematch
   expected-result: |
-    Кнопка 'Rematch' доступна. После нажатия на кнопку 'Rematch' запускается новая игра с теми же настройками и противником
+    Кнопка Rematch доступна. После нажатия на кнопку Rematch запускается новая игра с теми же настройками и противником
 
 - summary: |
     Победа в матче
@@ -409,8 +402,8 @@
   prerequisites:
     Открыты главные страницы CodeBattle двух атворизованных пользователей с разных браузеров
   test-data: |
-    Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
-    Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
+    Пользователь 1 = email mccenzly@bk.ru, password 12345678
+    Пользователь 2 = email tuttifrutti@fleximtogether.com, password 12345678
     Task = rect area
     Код для победы в игре:
     const _ = require("lodash");
@@ -420,40 +413,14 @@
     };
     module.exports = solution;
   steps:
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - На втором аккаунте принимаем игру нажав "accept"
-    - Вставляем код для победы
-    - Нажимаем "Run"
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - На втором аккаунте принять игру нажав accept
+    - Вставить код для победы
+    - Нажать Run
   expected-result: |
     Победа присуждается пользователю, который первым правильно решил задачу
-
-- summary: |
-    Игра завершается при различных условиях
-  requirement: |
-    Игра завершается при победе, самостоятельной сдаче, победе противника, сдаче противника, завершении времени
-  prerequisites:
-    Открыты главные страницы CodeBattle двух атворизованных пользователей с разных браузеров
-  test-data: |
-    Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
-    Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
-  steps:
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - На втором аккаунте принимаем игру нажав "accept"
-    - Пользователь 1 решает задачу правильно.
-    - Пользователь 1 нажимает кнопку "Give up".
-    - Пользователь 2 решает задачу правильно.
-    - Пользователь 2 нажимает кнопку "Give up"
-    - Дождаться завершения времени игры
-  expected-result: |
-    - Игра завершается при правильном решении задачи Пользователем 1
-    - Игра завершается при сдаче Пользователем 1
-    - Игра завершается при правильном решении задачи Пользователем 2
-    - Игра завершается при сдаче Пользователем 2
-    - Игра завершается по истечении времени
 
 - summary: |
     Просмотр игрового поля противника
@@ -462,13 +429,13 @@
   prerequisites:
     Открыты главные страницы CodeBattle двух атворизованных пользователей с разных браузеров
   test-data: |
-    Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
-    Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
+    Пользователь 1 = email mccenzly@bk.ru, password 12345678
+    Пользователь 2 = email tuttifrutti@fleximtogether.com, password 12345678
   steps:
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - На втором аккаунте принимаем игру нажав "accept"
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - На втором аккаунте принять игру нажав accept
     - Пользователь 1 начинает выполнять действия на игровом поле
     - Пользователь 2 наблюдает за действиями Пользователя 1
   expected-result: |
@@ -481,13 +448,13 @@
   prerequisites:
     Пользователь авторизован
   test-data: |
-    empty
+    Пользователь 1 = email mccenzly@bk.ru, password 12345678
+    Пользователь 2 = email tuttifrutti@fleximtogether.com, password 12345678
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажимаем "Create a game"
-    - Выбираем параметры игры
-    - Нажимаем "Create battle"
-    - Пользователь нажимает кнопку отмены игры "decline" до её начала
+    - Пользователь 1 - нажать Create a game
+    - Пользователь 1 - выьрать параметры игры с Пользователем 2 
+    - Пользователь 1 - нажать Create battle
+    - Пользователь 2 - нажимает кнопку отмены игры decline до её начала
   expected-result: |
     Игра успешно отменяется до её начала
 
@@ -498,8 +465,8 @@
   prerequisites:
     Открыты главные страницы CodeBattle двух атворизованных пользователей с разных браузеров
   test-data: |
-    Пользователь 1 = email "mccenzly@bk.ru", password "12345678"
-    Пользователь 2 = email "tuttifrutti@fleximtogether.com", password "12345678"
+    Пользователь 1 = email mccenzly@bk.ru, password 12345678
+    Пользователь 2 = email tuttifrutti@fleximtogether.com, password 12345678
     Task = rect area
     Код для победы в игре:
     const _ = require("lodash");
@@ -509,12 +476,11 @@
     };
     module.exports = solution;
   steps:
-    - Открыть главную страницу сайта https://codebattle.hexlet.io/#lobby
-    - Нажать "Create a game"
-    - Выбирать параметры игры и противика с которым будет проходить игра
-    - Нажать "Create battle"
-    - Вставляем код для победы
-    - Нажимаем "Run"
+    - Нажать Create a game
+    - Выбрать параметры игры с Пользователем 2
+    - Нажать Create battle
+    - Вставить код для победы
+    - Нажать Run
     - Перейти в лобби
     - Проверить количество очков на профиле пользователя
   expected-result: |
@@ -525,15 +491,14 @@
   requirement: |
     Показатели рейтинга нового игрока должны быть корректны
   prerequisites:
-    В веб-приложении "CodeBattle" создан пользователь который ни разу не вступал в игру
+    В веб-приложении CodeBattle создан пользователь который ни разу не вступал в игру
   test-data: |
-    Email = "lokomotiv@bk.ru"
-    Password = "lokomotiv"
+    Email = lokomotiv@bk.ru
+    Password = lokomotiv
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Проверить количество очков на профиле пользователя
   expected-result: |
-    Очки рейтинга отображены корректно.
+    Очки рейтинга отображены корректно
 
 - summary: |
     Использование приватного чата с игроками online
@@ -544,7 +509,6 @@
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Открыть список игроков online
     - Выбрать игрока и начать с ним приватный чат
   expected-result: |
@@ -559,7 +523,6 @@
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Просмотреть область на главной странице, где отображается количество игроков online
   expected-result: |
     На главной странице отображается актуальное количество игроков online
@@ -573,7 +536,6 @@
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Следить за количеством игроков online
     - Отметить изменения в количестве при входе/выходе других пользователей
   expected-result: |
@@ -588,7 +550,6 @@
   test-data: |
     empty
   steps:
-    - Открываем главную страницу сайта https://codebattle.hexlet.io/#lobby
     - Найти общий чат на главной странице
     - Проверить возможность отправки сообщений в общий чат
   expected-result: |
