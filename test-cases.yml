@@ -12,8 +12,7 @@
     - Заполнить все обязательные поля 
     - Нажать кнопку Submit
   expected-result: |
-    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
-    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+    Регистрация пройдена, в правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
     Регистрация пользователя с Nickname менее 3 символов
@@ -33,7 +32,26 @@
     - Ввести Password Confirmation
     - Нажать кнопку Submit
   expected-result: |
-    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле Nickname отобразилась ошибка Should be from 3 to 16 characters
+
+- summary: |
+    Регистрация пользователя с Nickname более 16 символов
+  requirement: |
+    Поле для ввода имени в разделе регистрации должно быть от 3 до 16 символов
+  prerequisites: |
+    no data
+  test-data: |
+    Niсkname = Flugegehaimen123456
+    Email = mccenzly@bk.ru
+    Password = 12345678
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+  expected-result: |
     В поле Nickname отобразилась ошибка Should be from 3 to 16 characters
 
 - summary: |
@@ -54,7 +72,6 @@
     - Ввести Password Confirmation
     - Нажать кнопку Submit
   expected-result: |
-    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
     В поле Nickname отобразилась ошибка Should contain Latin letters, numbers and underscores. Only begin with latin letter
 
 - summary: |
@@ -75,7 +92,26 @@
     - Ввести Password Confirmation
     - Нажать кнопку Submit
   expected-result: |
-    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
+    В поле Password отобразилась ошибка Should be from 6 to 16 characters
+
+- summary: |
+    Регистрация пользователя с Password более 16 символов
+  requirement: |
+    Поле для ввода пароля в разделе регистрации должно быть от 6 до 16 символов
+  prerequisites: |
+    no data
+  test-data: |
+    Niсkname = Zenit
+    Email = mccenzly@bk.ru
+    Password = 123456789123456789
+  steps:
+    - Нажать кнопку Sign Up
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+  expected-result: |
     В поле Password отобразилась ошибка Should be from 6 to 16 characters
 
 - summary: |
@@ -96,7 +132,6 @@
     - Ввести Password Confirmation
     - Нажать кнопку Submit
   expected-result: |
-    Отображена страница https://codebattle.hexlet.io/users/new?locale=en&next=%2Fremind_password
     В поле Email отобразилась ошибка Email is already taken
 
 - summary: |
@@ -104,7 +139,7 @@
   requirement: |
     При входе в профиль и вводе неверного пароля отображается ошибка INVALID_PASSWORD
   prerequisites: |
-    Перейти на страницу веб-приложения CodeBattle по ссылке https://codebattle.hexlet.io/
+    no data
   test-data: |
     Email = mccenzly@bk.ru
     Password = 87654321
@@ -114,7 +149,6 @@
     - Ввести Password
     - Нажать кнопку Submit
   expected-result: |
-    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
     Отобразилась ошибка INVALID_PASSWORD
 
 - summary: |
@@ -122,7 +156,7 @@
   requirement: |
     При авторизации если оставить поле email пустым появляется ошибка Email required
   prerequisites: |
-    Перейти на страницу веб-приложения CodeBattle по ссылке https://codebattle.hexlet.io/
+    no data
   test-data: |
     Email = пустое поле
     Password = 12345678
@@ -132,7 +166,6 @@
     - Ввести Password
     - Нажать кнопку Submit
   expected-result: |
-    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
     Отобразилась ошибка Email required
 
 - summary: |
@@ -140,7 +173,7 @@
   requirement: |
     При авторизации если оставить поле password пустым появляется ошибка Password required
   prerequisites: |
-    Перейти на страницу веб-приложения "CodeBattle" по ссылке https://codebattle.hexlet.io/
+    no data
   test-data: |
     Email = mccenzly@bk.ru
     Password = оставить пустым
@@ -150,7 +183,6 @@
     - Оставить поле password пустым
     - Нажать кнопку Submit
   expected-result: |
-    Отображена страница https://codebattle.hexlet.io/session/new?locale=en&next=%2F
     Отобразилась ошибка Password required
 
 
@@ -186,8 +218,7 @@
     - Ввести логин или email
     - Нажать sign in
   expected-result: |
-    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
-    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+    Пользователь авторизован, в правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
     Вход с помощью других сервисов
@@ -200,8 +231,7 @@
     - Нажать кнопку Sign in with Discord
     - Нажать авторизация
   expected-result: |
-    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
-    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+    Пользователь авторизован, в правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
     Вход с помощью других сервисов
@@ -215,8 +245,7 @@
     - Сканировать QR-код через мобильное приложение Discord на телефоне
     - Пройти капчу
   expected-result: |
-    Вход выполнен, отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
-    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+    Пользователь авторизован, в правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
     Вход на сайт
@@ -233,8 +262,7 @@
     - Ввести Password
     - Нажать кнопку Submit
   expected-result: |
-    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
-    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
+    Пользователь авторизован, в правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
 
 - summary: |
     Восстановление пароля
@@ -257,10 +285,8 @@
     - Ввести новый Password
     - Нажать Submit
   expected-result: |
-    Новый пароль успешно изменён  
-    Отображена главная страница CodeBattle https://codebattle.hexlet.io/#lobby
-    В правом верхнем углу отображены данные (аватар, Nickname) указанного пользователя
-
+    Пароль успешно изменён
+    
 - summary: |
     Запуск игры незарегистрированным пользователем 
   requirement: |
@@ -288,7 +314,7 @@
     - Изменить аватар
     - Нажать Save
   expected-result: |
-    Изменились Email, Password, аватар
+    Изменились имя, email, password, аватар
 
 - summary: |
     Изменение настроек профиля
@@ -306,8 +332,7 @@
     - Изменить громкость сайта путем передвигания бегунка 
     - Нажать Save
   expected-result: |
-    Изменился язык программирования, звук сайта, громкость сайта установилась согласно установке бегунка.
-    Появилось сообщение Your settings has been changed
+    Изменился язык программирования, звук сайта, громкость сайта установилась согласно установке бегунка, появилось сообщение Your settings has been changed
 
 - summary: |
     Просмотр статистики своего профиля
@@ -321,8 +346,7 @@
     - Нажать на значек своего профиля в правом верхнем углу
     - Нажать My profile
   expected-result: |
-    Открывается страница https://codebattle.hexlet.io/users/15730
-    На странице видна статистика пользователя
+    Открылась страница со статистикой данного пользователя
 
 - summary: |
     Выход из профиля
@@ -336,7 +360,6 @@
     - Нажать на значек своего профиля в правом верхнем углу
     - Нажать Sign Out
   expected-result: |
-    Открывается страница https://codebattle.hexlet.io
     Выход пользователя из приложения выполнен успешно
 
 - summary: |
@@ -355,7 +378,7 @@
     - Нажать Tournaments
     - Кликнуть Show на созданный пользователем турнир
   expected-result: |
-    Открывается страница с турниром и видна вся информация о нем
+    Открыта страница с турниром и видна вся информация о нем
 
 - summary: |
     Сортировка пользователей по рейтингу
@@ -392,7 +415,7 @@
     - Выбрать задание (Choose task by name or tags)
     - Нажать Create battle
   expected-result: |
-    Открылась страница с игрой 
+    Открыта страница с игрой 
 
 - summary: |
     История игры
@@ -410,24 +433,35 @@
 - summary: |
     Просмотр Guide в игре
   requirement: |
-    Зарегистрированный и незарегистрированный пользователь может просматривать Guide в игре с ботом
+   Незарегистрированный пользователь может просматривать Guide в игре с ботом
   prerequisites:
     no data
   test-data: |
-    Email = mccenzly@bk.ru
-    Password = 12345678
+    no data
   steps:
     - Нажать кнопку Try simple battle
     - Нажать Show guide
     - Нажать Next
     - Нажать Back
     - Нажать Skip guide
-    - Нажать Back to home
+  expected-result: |
+    Guide работает у незарегистрированного пользователя
+
+- summary: |
+    Просмотр Guide в игре
+  requirement: |
+    Зарегистрированный пользователь может просматривать Guide в игре с ботом
+  prerequisites:
+    no data
+  test-data: |
+    Email = mccenzly@bk.ru
+    Password = 12345678
+  steps:
     - Пройти авторизацию в приложении
     - Создать игру
     - Пройти все шаги с кнопкой Show guide
   expected-result: |
-    Окно "Guide" появилось, работает корректно как у зарегистрированного так и у незарегистрированного пользователя
+    Guide работает у зарегистрированного пользователя
 
 - summary: |
     Смена темы игры
@@ -528,7 +562,13 @@
   prerequisites:
     Пользователь авторизован
   test-data: |
-    empty
+    Код для победы в игре:
+    const _ = require("lodash");
+    const R = require("rambda");
+    const solution = (width, length) => {
+    return width * length;
+    };
+    module.exports = solution;
   steps:
     - Нажать Create a game
     - Выбрать параметры игры
@@ -763,7 +803,3 @@
     - Попробовать отправить сообщение другим пользователям
   expected-result: |
     Пользователь может легко отправлять и получать сообщения от других пользователей на сайте
-
-    
-
-    
