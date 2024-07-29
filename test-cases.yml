@@ -327,7 +327,7 @@
 - summary: |
     Изменение настроек профиля
   requirement: |
-    Пользователь может менять язык программирования, звуки сайта dendy/cs/standart/silent и громкость в настройках профиля
+    Пользователь может менять язык программирования в настройках профиля 
   prerequisites: |
     Пользователь авторизован
   test-data: |
@@ -336,11 +336,41 @@
     - Нажать на навигационное меню
     - Нажать Settings
     - Выбрать язык программирования в окне Your weapon
+    - Нажать Save
+  expected-result: |
+    Изменился язык программирования, появилось сообщение Your settings has been changed
+
+- summary: |
+    Изменение настроек профиля
+  requirement: |
+    Пользователь может изменить звуки сайта на dendy/cs/standart/silent в настройках профиля
+  prerequisites: |
+    Пользователь авторизован
+  test-data: |
+    no data
+  steps:
+    - Нажать на навигационное меню
+    - Нажать Settings
     - Изменить звук сайта во вкладке Select sound type
+    - Нажать Save
+  expected-result: |
+    Звуки сайта изменились согласно выбранных, появилось сообщение Your settings has been changed
+
+- summary: |
+    Изменение настроек профиля
+  requirement: |
+    Пользователь может изменить громкость звуков сайта в настройках профиля
+  prerequisites: |
+    Пользователь авторизован
+  test-data: |
+    no data
+  steps:
+    - Нажать на навигационное меню
+    - Нажать Settings
     - Изменить громкость сайта путем передвигания бегунка 
     - Нажать Save
   expected-result: |
-    Изменился язык программирования, звук сайта, громкость сайта установилась согласно установке бегунка, появилось сообщение Your settings has been changed
+    Изменилась громкость сайта согласно установке бегунка, появилось сообщение Your settings has been changed
 
 - summary: |
     Просмотр статистики своего профиля
@@ -526,9 +556,9 @@
     В игровом поле "solution" обнулился до начальных значений
 
 - summary: |
-    Запуск проверки solution
+    Автоматическая проверка - задача решена верно
   requirement: |
-    Пользователь может запустить проверку solution
+    Пользователь может запустить проверку solution 
   prerequisites:
     Пользователь авторизован
   test-data: |
@@ -548,6 +578,30 @@
     - Нажать кнопку Run
   expected-result: |
     Появилось окно Woohoo, you're Champion!!!!!, во вкладке output появилось сообщение Yay! All tests passed!!111 код прошел проверку
+
+- summary: |
+    Автоматическая проверка -задача решена неверно
+  requirement: |
+    Пользователь может запустить проверку solution 
+  prerequisites:
+    Пользователь авторизован
+  test-data: |
+    Task = rect area
+    Код для победы в игре:
+    const _ = require("lodash");
+    const R = require("rambda");
+    const solution = (width, length) => {
+    return width + length;
+    };
+    module.exports = solution;
+  steps:
+    - Нажать Create a game
+    - Выбрать параметры игры
+    - Нажать Create battle
+    - Записать в solution код решения данного задания 
+    - Нажать кнопку Run
+  expected-result: |
+    Появилось окно If you read this you've lost the game
 
 - summary: |
     Чат с соперником в игре
@@ -587,33 +641,6 @@
     - Нажать кнопку Rematch
   expected-result: |
     Кнопка Rematch доступна. После нажатия на кнопку Rematch запускается новая игра с теми же настройками и противником
-
-- summary: |
-    Победа в матче
-  requirement: |
-    Победа присуждается первому правильно решившему задачу пользователю
-  prerequisites:
-    Открыты главные страницы CodeBattle двух атворизованных пользователей с разных браузеров
-  test-data: |
-    Пользователь 1 = email mccenzly@bk.ru, password 12345678
-    Пользователь 2 = email tuttifrutti@fleximtogether.com, password 12345678
-    Task = rect area
-    Код для победы в игре:
-    const _ = require("lodash");
-    const R = require("rambda");
-    const solution = (width, length) => {
-    return width * length;
-    };
-    module.exports = solution;
-  steps:
-    - Нажать Create a game
-    - Выбрать параметры игры
-    - Нажать Create battle
-    - На втором аккаунте принять игру нажав accept
-    - Вставить код для победы
-    - Нажать Run
-  expected-result: |
-    Победа присуждается пользователю, который первым правильно решил задачу
 
 - summary: |
     Просмотр игрового поля противника
@@ -751,25 +778,7 @@
     - Проверить возможность отправки сообщений в общий чат
   expected-result: |
     Общий чат доступен на главной странице, и пользователи могут отправлять сообщения
-
-- summary: |
-   Верстка сайта
-  requirement: |
-    Все элементы сайта должны быть понятны пользователю и отображены корректно, расположены логично и интуитивно понятны
-  prerequisites:
-    no data
-  environtment:
-    Chrome версии 126.0.6478.183 (64 бит); Opera One(версия: 111.0.5168.61); Firefox 128.0 (32-разрядный)
-  test-data: |
-    Email = lokomotiv@bk.ru
-    Password = lokomotiv
-  steps:
-    - Открыть сайт в веб-браузере
-    - Авторизоваться
-    - Проанализировать расположение основных элементов интерфейса (баннеры, меню, кнопки, поля ввода)
-  expected-result: |
-    Все элементы сайта отображаются корректно
-    
+  
 - summary: |
     Простота навигации
   requirement: |
